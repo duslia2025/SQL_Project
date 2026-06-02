@@ -1,0 +1,51 @@
+/***********************************************************************
+Name: Chrismel Duslia Mbila
+Course: IT143
+Assignment: Week 5.2 My Communities Analysis – Create Answers
+Community: MyFC
+Date: 06/02/2026
+***********************************************************************/
+
+
+/* Question 1 (Author: Duslia)
+   Which members appear most frequently in the dataset? */
+
+SELECT 
+    Last_Name,
+    COUNT(*) AS AppearanceCount
+FROM Members
+GROUP BY Last_Name
+ORDER BY AppearanceCount DESC, Last_Name;
+
+
+/* Question 2 (Author: Other Student)
+   Which members were hired the earliest? */
+
+SELECT 
+    Name,
+    Hire_Date
+FROM Members
+WHERE Hire_Date IS NOT NULL
+ORDER BY Hire_Date ASC;
+
+
+/* Question 3 (Author: Duslia)
+   Which job titles are most common in the dataset? */
+
+SELECT 
+    Job_Title,
+    COUNT(*) AS TotalByJob
+FROM Members
+GROUP BY Job_Title
+ORDER BY TotalByJob DESC, Job_Title;
+
+
+/* Question 4 (Author: Other Student)
+   Which department has the most members? */
+
+SELECT 
+    Department,
+    COUNT(*) AS DepartmentCount
+FROM Members
+GROUP BY Department
+ORDER BY DepartmentCount DESC, Department;
